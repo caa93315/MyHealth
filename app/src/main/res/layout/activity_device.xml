@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/light">
+
+    <!-- 顶部栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textColor="@color/gray_350"
+        android:background="@drawable/shape_device_card"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_arrow_left_desc"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:contentDescription="@string/设备管理"
+            android:src="@drawable/ic_arrow_left"
+            android:tint="@color/gray_700"
+            android:clickable="true"
+            tools:ignore="UseAppTint" />
+    </LinearLayout>
+
+    <!-- 设备信息 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textColor="@color/gray_850"
+        android:background="@drawable/shape_device_card"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_band"
+            android:scaleType="centerCrop"
+            android:background="@drawable/shape_rounded"
+            android:layout_marginEnd="16dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pro"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@string/連接"
+                    android:src="@drawable/ic_signal"
+                    android:tint="@color/teal_700"
+                    tools:ignore="UseAppTint,ImageContrastCheck" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/連線"
+                    android:textSize="12sp"
+                    android:textColor="#073E3E"
+                    android:layout_marginLeft="4dp"
+                    tools:ignore="RtlHardcoded" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/续航"
+                android:textSize="12sp"
+                android:textColor="@color/gray_800"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 功能开关 -->
+
+    <!-- 设备功能 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 消息提醒 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_clickable"
+            android:gravity="center_vertical"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/消息提錫"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/接收"
+                    android:textColor="@color/gray_800"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- 开关：设置id以便代码监听 -->
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+        </LinearLayout>
+
+        <!-- 心率监测 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_clickable"
+            android:gravity="center_vertical"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/心率"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/實時"
+                    android:textColor="@color/gray_800"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- 开关：设置id以便代码监听 -->
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_heart_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+        </LinearLayout>
+
+        <!-- 久坐提醒 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_clickable"
+            android:gravity="center_vertical"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/久坐"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/活動"
+                    android:textColor="@color/gray_800"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- 开关：修复重复的android:checked属性 -->
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_sitting_reminder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+        </LinearLayout>
+
+        <!-- 夜间模式 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_clickable"
+            android:gravity="center_vertical"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/夜間"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/自動"
+                    android:textColor="@color/gray_800"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- 开关：设置id以便代码监听 -->
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_night_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/設備功能"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/gray_800"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_card"
+            android:orientation="vertical">
+
+            <!-- 调整亮度 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:background="@drawable/shape_clickable">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/DO"
+                    android:src="@drawable/ic_brightness"
+                    android:tint="@color/primary"
+                    android:layout_marginRight="12dp"
+                    tools:ignore="RtlHardcoded,UseAppTint" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/亮度"
+                    android:textSize="16sp"/>
+
+                <Space android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@string/oclok"
+                    android:src="@drawable/ic_arrow_right"
+                    android:tint="@color/gray_800"
+                    tools:ignore="UseAppTint" />
+            </LinearLayout>
+
+            <!-- 时间设置 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:background="@drawable/shape_clickable">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/to"
+                    android:src="@drawable/ic_clock"
+                    android:tint="@color/primary"
+                    android:layout_marginRight="12dp"
+                    tools:ignore="RtlHardcoded,UseAppTint" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/時間設置"
+                    android:textSize="16sp"/>
+
+                <Space android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@string/you"
+                    android:src="@drawable/ic_arrow_right"
+                    android:tint="@color/gray_700"
+                    tools:ignore="UseAppTint" />
+            </LinearLayout>
+
+            <!-- 固件更新 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:background="@drawable/shape_clickable">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/固件更新"
+                    android:src="@drawable/ic_update"
+                    android:tint="@color/primary"
+                    android:layout_marginRight="12dp"
+                    tools:ignore="RtlHardcoded,UseAppTint" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ic_update"
+                    android:textSize="16sp"/>
+
+                <Space android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/版本"
+                    android:textColor="#00838F"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 操作按钮 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:minWidth="400dp"
+            android:text="@string/watch"
+            android:textSize="16sp"
+            android:textColor="@color/gray_850"
+            android:background="@drawable/shape_btn_blue"
+            android:padding="12dp"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="10dp"
+            android:layout_marginBottom="8dp"
+            tools:ignore="VisualLintButtonSize" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:minWidth="160dp"
+            android:text="@string/sign_out"
+            android:textSize="16sp"
+            android:textColor="#3C0A05"
+            android:background="@drawable/shape_btn_danger_border"
+            android:padding="12dp"
+            android:drawableStart="@drawable/ic_sign_out"
+            android:drawablePadding="8dp"
+            android:layout_marginBottom="8dp"
+            tools:ignore="VisualLintButtonSize" />
+    </LinearLayout>
+
+    <!-- 底部导航（与首页复用） -->
+    <include layout="@layout/layout_bottom_nav"/>
+</LinearLayout>

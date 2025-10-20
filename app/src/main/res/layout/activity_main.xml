@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/light">
+
+    <!-- 顶部栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/avatar_desc"
+            android:src="@drawable/ic_avatar"
+            android:scaleType="centerCrop"
+            android:background="@drawable/shape_circle"
+            android:layout_marginRight="@dimen/layout_margin_right"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_name"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/sync_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sync_btn"
+            android:textSize="14sp"
+            android:textColor="@color/primary"
+            android:drawableLeft="@drawable/ic_refresh"
+            android:drawablePadding="@dimen/drawable_padding"
+            tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
+    </LinearLayout>
+
+    <!-- 状态提示 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sync_time"
+            android:textSize="12sp"
+            android:textColor="@color/gray_500"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/battery_level"
+            android:textSize="12sp"
+            android:textColor="@color/gray_500"
+            android:drawableLeft="@drawable/ic_battery"
+            android:drawablePadding="@dimen/drawablePadding"
+            tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
+    </LinearLayout>
+
+    <!-- 核心数据卡片（网格布局） -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:padding="16dp"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false">
+
+        <!-- 步数卡片 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_card"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/step_count_title"
+                    android:textSize="12sp"
+                    android:textColor="@color/gray_500"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/step_icon_desc"
+                    android:src="@drawable/ic_shoe_prints"
+                    android:tint="@color/primary"
+                    tools:ignore="UseAppTint" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/step_count"
+                    android:textSize="28sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/step_percent"
+                    android:textSize="12sp"
+                    android:textColor="@color/success"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginBottom="@dimen/layout_marginBottom"
+                    tools:ignore="RtlHardcoded" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:progress="80"
+                android:max="100"
+                android:progressTint="@color/success"
+                android:backgroundTint="@color/gray_100"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <!-- 睡眠卡片 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_card"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sleep_duration_title"
+                    android:textSize="12sp"
+                    android:textColor="@color/gray_500"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/sleep_icon_desc"
+                    android:src="@drawable/ic_bed"
+                    android:tint="@color/primary"
+                    tools:ignore="UseAppTint" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sleep_duration"
+                    android:textSize="28sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sleep_unit"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginBottom="4dp"
+                    tools:ignore="RtlHardcoded" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/deep_sleep"
+                    android:textSize="12sp"
+                    android:textColor="@color/gray_500"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/light_sleep"
+                    android:textSize="12sp"
+                    android:textColor="@color/gray_500"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 心率卡片 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_card"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/heart_rate_title"
+                    android:textSize="12sp"
+                    android:textColor="@color/gray_500"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/heart_icon_desc"
+                    android:src="@drawable/ic_heartbeat"
+                    android:tint="@color/primary"
+                    android:layout_gravity="center_vertical"
+                    tools:ignore="UseAppTint" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/heart_rate"
+                    android:textSize="28sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/heart_rate_unit"
+                    android:textSize="12sp"
+                    android:textColor="@color/blue_dark_3"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginBottom="4dp"
+                    tools:ignore="RtlHardcoded" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@string/check_icon_desc"
+                    android:src="@drawable/ic_check_circle"
+                    android:tint="@color/teal_700"
+                    tools:ignore="UseAppTint" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/heart_rate_status"
+                    android:textSize="12sp"
+                    android:textColor="@color/success"
+                    android:layout_marginLeft="4dp"
+                    tools:ignore="RtlHardcoded" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 卡路里卡片 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_card"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calorie_title"
+                    android:textSize="12sp"
+                    android:textColor="@color/gray_500"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/calorie_icon_desc"
+                    android:src="@drawable/ic_fire"
+                    android:tint="@color/primary"
+                    tools:ignore="UseAppTint" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calorie"
+                    android:textSize="28sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calorie_unit"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginBottom="4dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/calorie_tip"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+    </GridLayout>
+
+    <!-- 趋势图表 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/trend_title"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/trend_action"
+            android:textSize="14sp"
+            android:textColor="@color/primary"
+            android:drawableRight="@drawable/ic_arrow_right"
+            android:drawablePadding="4dp"
+            tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/steps_chart"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/shape_card"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp" />
+
+    <!-- 快捷按钮 -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:background="@drawable/shape_btn_success"
+        android:drawableLeft="@drawable/ic_play_circle"
+        android:drawablePadding="-20dp"
+        android:padding="10dp"
+        android:text="@string/sport_btn"
+        android:textColor="@color/gray_800"
+        android:textSize="20sp"
+        tools:ignore="RtlHardcoded,VisualLintButtonSize" />
+
+    <!-- 健康小贴士 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/shape_tip"
+        android:padding="-16dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="12dp"
+            android:contentDescription="@string/健康小貼士"
+            android:src="@drawable/ic_lightbulb"
+            android:tint="@color/purple_700"
+            tools:ignore="RtlHardcoded,UseAppTint,VisualLintBounds" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="VisualLintBounds">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tip_title"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/tip_content"
+                android:textColor="@color/gray_600"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/layout_bottom_nav"/>
+
+
+</LinearLayout>

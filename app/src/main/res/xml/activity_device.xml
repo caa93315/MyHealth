@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:background="@color/light">
+
+<!-- 顶部栏 -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设备管理"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <Space android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_arrow_left"
+        android:tint="@color/gray_500"
+        android:clickable="true"/>
+</LinearLayout>
+
+<!-- 设备信息 -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_band"
+        android:scaleType="centerCrop"
+        android:background="@drawable/shape_rounded"
+        android:layout_marginRight="16dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="智慧手环 Pro"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="4dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_signal"
+                android:tint="@color/success"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已连接"
+                android:textSize="12sp"
+                android:textColor="@color/success"
+                android:layout_marginLeft="4dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="电量 85% | 可续航 5 天"
+            android:textSize="12sp"
+            android:textColor="@color/gray_500"
+            android:layout_marginTop="4dp"/>
+    </LinearLayout>
+</LinearLayout>
+
+<!-- 功能开关 -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <!-- 消息提醒 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:background="@drawable/shape_clickable">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="消息提醒"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="接收电话/短信通知"
+                android:textSize="12sp"
+                android:textColor="@color/gray_500"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <Space android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"/>
+    </LinearLayout>
+
+    <!-- 心率监测 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:background="@drawable/shape_clickable">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="心率监测"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="实时监测心率变化"
+                android:textSize="12sp"
+                android:textColor="@color/gray_500"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <Space android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"/>
+    </LinearLayout>
+
+    <!-- 久坐提醒 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:background="@drawable/shape_clickable">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="久坐提醒"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="每小时提醒活动"
+                android:textSize="12sp"
+                android:textColor="@color/gray_500"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <Space android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- 夜间模式 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:background="@drawable/shape_clickable">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="夜间模式"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="22:00-6:00自动开启"
+                android:textSize="12sp"
+                android:textColor="@color/gray_500"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <Space android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"/>
+    </LinearLayout>
+</LinearLayout>
+
+<!-- 设备功能 -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设备功能"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/gray_500"
+        android:layout_marginBottom="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_card"
+        android:orientation="vertical">
+
+        <!-- 调整亮度 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="12dp"
+            android:background="@drawable/shape_clickable">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_brightness"
+                android:tint="@color/primary"
+                android:layout_marginRight="12dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="调整亮度"
+                android:textSize="16sp"/>
+
+            <Space android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_arrow_right"
+                android:tint="@color/gray_400"/>
+        </LinearLayout>
+
+        <!-- 时间设置 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="12dp"
+            android:background="@drawable/shape_clickable">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_clock"
+                android:tint="@color/primary"
+                android:layout_marginRight="12dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="时间设置"
+                android:textSize="16sp"/>
+
+            <Space android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_arrow_right"
+                android:tint="@color/gray_400"/>
+        </LinearLayout>
+
+        <!-- 固件更新 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="12dp"
+            android:background="@drawable/shape_clickable">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_update"
+                android:tint="@color/primary"
+                android:layout_marginRight="12dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="固件更新"
+                android:textSize="16sp"/>
+
+            <Space android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已是最新版本"
+                android:textSize="12sp"
+                android:textColor="@color/success"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+
+<!-- 操作按钮 -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查找手环"
+        android:textSize="16sp"
+        android:textColor="@color/gray_800"
+        android:background="@drawable/ic_device"
+        android:padding="12dp"
+        android:drawableLeft="@drawable/ic_search"
+        android:drawablePadding="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="断开连接"
+        android:textSize="16sp"
+        android:textColor="@color/danger"
+        android:background="@drawable/shape_btn_danger_border"
+        android:padding="12dp"
+        android:drawableLeft="@drawable/ic_sign_out"
+        android:drawablePadding="8dp"/>
+</LinearLayout>
+
+<!-- 底部导航（与首页复用） -->
+<include layout="@layout/layout_bottom_nav"/>
+</LinearLayout>

@@ -1,0 +1,169 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" translatable="false">Health</string>
+    <string name="nav_home" translatable="false">首页</string>
+    <string name="nav_health" translatable="false">健康</string>
+    <string name="nav_sport" translatable="false">运动</string>
+    <string name="nav_device" translatable="false">设备</string>
+    <string name="nav_mine" translatable="false">我的</string>
+    <string name="nav_user_desc" translatable="false">使用者</string>
+    <string name="nav_device_desc" translatable="false">設備</string>
+    <string name="nav_sport_desc" translatable="false">运动</string>
+    <string name="nav_health_desc" translatable="false">健康</string>
+    <string name="nav_home_desc" translatable="false">首页</string>
+    <string name="nav_lightblub_desc" translatable="false">健康小贴士</string>
+    <string name="nav_fire_desc" translatable="false">卡路里</string>
+    <string name="nav_hearbeat_desc" translatable="false">平均心率</string>
+    <string name="nav_ic_check_circle_desc" translatable="false">正常范围</string>
+    <string name="ic_shoe_prints" translatable="false">今日步数</string>
+    <string name="ic_refresh" translatable="false">同步</string>
+    <string name="shape_circle" translatable="false">张小明</string>
+
+    <string name="nav_arrow_left_desc" translatable="false">设备管理</string>
+    <string name="nav_arrow_right_desc" translatable="false">查看全部</string>
+    <string name="sport_btn" translatable="false">开始运动</string>
+
+    <string name="首页图标" translatable="false">nav_home_desc</string>
+    <string name="健康图标" translatable="false">nav_health_desc</string>
+    <string name="运动图标" translatable="false">nav_sport_desc</string>
+    <string name="设备图标" translatable="false">nav_device_desc</string>
+    <string name="我的图标" translatable="false">nav_mine_desc</string>
+    <string name="使用者" translatable="false">nav_user_desc</string>
+    <string name="設備" translatable="false">nav_device_desc</string>
+    <string name="運動" translatable="false">nav_sport_desc</string>
+    <string name="健康" translatable="false">nav_health_desc</string>
+    <string name="首页" translatable="false">nav_home_desc</string>
+    <string name="健康小贴士" translatable="false">nav_lightblub_desc</string>
+    <string name="卡路里" translatable="false">nav_fire_desc</string>
+    <string name="平均心率" translatable="false">nav_hearbeat_desc</string>
+    <string name="正常范围" translatable="false">nav_ic_check_circle_desc</string>
+    <string name="今日步數" translatable="false">ic_shoe_prints</string>
+    <string name="張小明" translatable="false">shape_circle</string>
+    <string name="ic_bed" translatable="false">睡眠时长</string>
+    <string name="睡眠时长" translatable="false">ic_bed</string>
+
+    <string name="设备管理" translatable="false">nav_arrow_left_desc</string>
+    <string name="ic_update" translatable="false">固件更新</string>
+    <string name="固件更新" translatable="false">ic_update</string>
+    <string name="ic_search" translatable="false">查找手环</string>
+    <string name="sign_out" translatable="false">断开连接</string>
+    <string name="開始運動" translatable="false">sport_btn</string>
+    <string name="sleep_unit" translatable="false">小时</string>
+    <string name="heart_rate_unit" translatable="false">次/分</string>
+    <string name="calorie_unit" translatable="false">千卡</string>
+    <string name="_1_5" translatable="false">相当于1.5杯奶茶</string>
+    <string name="_10_30" translatable="false">数据同步至 10:30</string>
+    <string name="_85" translatable="false">手环电量 85%</string>
+    <string name="_7_852" translatable="false">7,852</string>
+    <string name="_80" translatable="false">80%</string>
+    <string name="_6_5" translatable="false">6.5</string>
+    <string name="_2_3h" translatable="false">深睡 2.3h</string>
+    <string name="_4_2h" translatable="false">浅睡 4.2h</string>
+    <string name="_72" translatable="false">72</string>
+    <string name="_386" translatable="false">386</string>
+    <string name="_7" translatable="false">近7天步数趋势</string>
+    <string name="_30" translatable="false">今日您的活动量已达标，但睡眠时长略短。建议今晚提前30分钟入睡，保证充足休息。</string>
+    <string name="sync_desc" translatable="false" />
+    <string name="health_icon_desc" translatable="false" />
+    <string name="avatar_desc" translatable="false" />
+    <string name="user_name" translatable="false" />
+    <string name="sync_btn" translatable="false" />
+    <string name="home_desc" translatable="false" />
+    <string name="sync_time" translatable="false" />
+    <string name="battery_level" translatable="false" />
+    <string name="step_count_title" translatable="false" />
+    <string name="step_icon_desc" translatable="false" />
+    <string name="step_count" translatable="false" />
+    <string name="step_percent" translatable="false" />
+    <string name="calorie" translatable="false" />
+    <string name="calorie_icon_desc" translatable="false" />
+    <string name="calorie_tip" translatable="false" />
+    <string name="calorie_title" translatable="false" />
+    <string name="check_icon_desc" translatable="false" />
+    <string name="device_desc" translatable="false" />
+    <string name="deep_sleep" translatable="false" />
+    <string name="health_desc" translatable="false" />
+    <string name="heart_icon_desc" translatable="false" />
+    <string name="heart_rate" translatable="false" />
+    <string name="heart_rate_status" translatable="false" />
+    <string name="heart_rate_title" translatable="false" />
+    <string name="light_sleep" translatable="false" />
+    <string name="mine_desc" translatable="false" />
+    <string name="sleep_duration" translatable="false" />
+    <string name="sleep_duration_title" translatable="false" />
+    <string name="sport_desc" translatable="false" />
+    <string name="sleep_icon_desc" translatable="false" />
+    <string name="tip_content" translatable="false" />
+    <string name="tip_icon_desc" translatable="false" />
+    <string name="tip_title" translatable="false" />
+    <string name="trend_action" translatable="false" />
+    <string name="trend_title" translatable="false" />
+    <string name="健康小貼士" />
+    <string name="todo">TODO</string>
+    <string name="pro">智慧手环 Pro</string>
+    <string name="連接">TODO</string>
+    <string name="連線">已连接</string>
+    <string name="续航">电量 85% | 可续航 5 天</string>
+    <string name="消息提錫">消息提醒</string>
+    <string name="接收">接收电话/短信通知</string>
+    <string name="心率">心率监测</string>
+    <string name="實時">实时监测心率变化</string>
+    <string name="久坐">久坐提醒</string>
+    <string name="活動">每小时提醒活动</string>
+    <string name="夜間">夜间模式</string>
+    <string name="自動" tools:ignore="TypographyDashes">22:00-6:00自动开启</string>
+    <string name="設備功能">设备功能</string>
+    <string name="DO">TODO</string>
+    <string name="亮度">调整亮度</string>
+    <string name="oclok">TODO</string>
+    <string name="to">TODO</string>
+    <string name="時間設置">时间设置</string>
+    <string name="you">TODO</string>
+    <string name="版本">已是最新版本</string>
+    <string name="watch">查找手环</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="week">周</string>
+    <string name="heartrate">心率</string>
+    <string name="sleep">睡眠</string>
+    <string name="_65">65 次/分钟</string>
+    <string name="_7_30">7小时30分钟</string>
+
+    <string name="user_nickname">用户昵称</string>
+    <string name="user_id">ID: 123456</string>
+    <string name="settings">设置</string>
+    <string name="help_feedback">帮助与反馈</string>
+
+    <string name="about_us">关于我们</string>
+    <string name="system_settings">系统设置</string>
+    <string name="general_settings">通用设置</string>
+
+    <string name="today_steps_value">5200</string>
+    <string name="average_steps_value">6,245</string>
+    <string name="today_steps_actual">7,852</string>
+    <string name="health_check">健康监测</string>
+    <string name="start_workout">开始运动</string>
+
+    <string name="stress_value">32</string>
+    <string name="blood_oxygen_value">98%</string>
+    <string name="calorie_value">486</string>
+    <string name="_32">32</string>
+    <string name="_98">98%</string>
+    <string name="_486">486</string>
+
+    <string name="blood_oxygen">血氧</string>
+    <string name="calories">卡路里</string>
+    <string name="kcal_burned">今日消耗 (kcal)</string>
+    <string name="low_stress">低压力</string>
+    <string name="normal_range">正常范围</string>
+    <string name="stress_level">压力水平</string>
+    <string name="_6_245">6,245</string>
+    <string name="_5200">5200</string>
+
+    <string name="average_steps">平均步数</string>
+    <string name="target_80_percent">目标达成 80%</string>
+    <string name="today_steps_title">今日步数</string>
+    <string name="vs_last_week_up">较上周 +12%</string>
+    <string name="weekly_steps_trend">周步数趋势</string>
+
+</resources>
+

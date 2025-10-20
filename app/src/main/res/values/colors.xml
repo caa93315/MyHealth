@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="success_dark">#27AE60</color> <!-- 加深绿色，与浅色背景对比度更高 -->
+    <color name="success_light">#A2E8B6</color> <!-- 减淡绿色，与深色背景对比度更高 -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!-- 主色调 -->
+    <color name="primary">#3498DB</color>       <!-- 蓝色 -->
+    <color name="success">#2EF081</color>      <!-- 绿色 -->
+    <color name="warning">#F39C12</color>      <!-- 橙色 -->
+    <color name="danger">#E74C3C</color>       <!-- 红色 -->
+
+    <!-- 背景色 -->
+    <color name="light">#F5F7FA</color>        <!-- 浅灰背景 -->
+    <color name="gray_850">#424242</color> <!-- 文字深灰色 -->
+    <color name="gray_350">#2196F3</color> <!-- 浅灰色边框 -->
+    <!-- 中性色:深灰、浅灰（用于文字、背景） -->
+    <color name="gray_100">#F0F2F5</color>     <!-- 极浅灰 -->
+    <color name="gray_300">#CBD5E1</color>     <!-- 浅灰 -->
+    <color name="gray_200">#9393A9</color>
+    <color name="gray_400">#94A3B8</color>     <!-- 中浅灰 -->
+    <color name="gray_500">#9CA3AF</color>     <!-- 中灰 -->
+    <color name="gray_600">#6B7280</color>     <!-- 中深灰 -->
+    <color name="gray_700">#616161</color>     <!-- 深灰色 -->
+    <color name="gray_800">#1E293B</color>     <!-- 深灰 -->
+    <!-- 其他需要的颜色可在此补充 -->
+
+    <!-- 互补色：橙色（用于警告、提醒） -->
+    <color name="warning_dark">#CC8400</color> <!-- 深橙色 -->
+    <color name="warning_light">#FFD180</color> <!-- 浅橙色 -->
+    <color name="orange_500">#FF9800</color> <!-- 标准橙色 -->
+
+    <!-- 新增蓝色系 -->
+    <color name="primary_dark">#2980b9</color>
+    <color name="primary_light">#90CAF9</color>
+    <color name="blue_dark_1">#2980B9</color> <!-- 比基础蓝深20%，适合按钮选中态 -->
+    <color name="blue_dark_2">#1F6BA8</color> <!-- 比基础蓝深40%，适合重要标题/图标 -->
+    <color name="blue_dark_3">#155293</color> <!-- 比基础蓝深60%，适合深色背景上的高亮元素 -->
+    <color name="blue_200">#DBEAFE</color>
+    <color name="blue_300">#BFDBFE</color>
+    <color name="blue_400">#93C5FD</color>
+    <color name="blue_500">#60A5FA</color>
+
+    <color name="green_500">#188E1F</color>
+
+    <color name="red_dark_1">#3C0A05</color>
+</resources>

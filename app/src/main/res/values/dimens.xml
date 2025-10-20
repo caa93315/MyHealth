@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources >
+    <!-- 图标与文字间距（统一用dp，避免随字体缩放） -->
+    <dimen name="drawable_padding">4dp</dimen>
+
+    <!-- 右侧外边距（统一命名风格，使用标准数值） -->
+    <dimen name="layout_margin_right">16dp</dimen>
+
+    <!-- 底部外边距（根据场景定义基础值） -->
+    <dimen name="layout_margin_bottom">4dp</dimen>
+
+    <!-- 补充常用布局尺寸，提升复用性 -->
+    <dimen name="layout_margin_left">16dp</dimen>
+    <dimen name="layout_margin_top">16dp</dimen>
+    <dimen name="layout_padding_small">8dp</dimen>
+    <dimen name="layout_padding_normal">16dp</dimen>
+    <dimen name="card_corner_radius">8dp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_normal">14sp</dimen>
+    <dimen name="text_size_large">16sp</dimen>
+    <dimen name="icon_size_small">20dp</dimen>
+    <dimen name="icon_size_normal">24dp</dimen>
+
+    <dimen name="drawablePadding" />
+    <dimen name="layout_marginBottom" />
+    <dimen name="layout_marginRight" />
+</resources>

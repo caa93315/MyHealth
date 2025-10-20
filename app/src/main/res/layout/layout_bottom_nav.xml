@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="@color/light"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    tools:ignore="DisableBaselineAlignment">
+
+    <!-- 首页 -->
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="12dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/首页图标"
+            android:src="@drawable/ic_home_active"
+            android:tint="@color/blue_dark_3"
+            tools:ignore="UseAppTint" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/nav_home"
+            android:textColor="@color/primary_dark"
+            android:textSize="20sp"
+            tools:ignore="SmallSp" />
+    </LinearLayout>
+
+    <!-- 健康 -->
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="12dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/健康图标"
+            android:src="@drawable/ic_health"
+            android:tint="@color/blue_dark_2"
+            tools:ignore="UseAppTint" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/nav_health"
+            android:textColor="@color/primary_dark"
+            android:textSize="20sp"
+            tools:ignore="SmallSp" />
+    </LinearLayout>
+
+    <!-- 运动 -->
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="12dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/运动图标"
+            android:src="@drawable/ic_sport"
+            android:tint="@color/blue_dark_2"
+            tools:ignore="UseAppTint" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/nav_sport"
+            android:textColor="@color/primary_dark"
+            android:textSize="20sp"
+            tools:ignore="SmallSp" />
+    </LinearLayout>
+
+    <!-- 设备 -->
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="12dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/设备图标"
+            android:src="@drawable/ic_device"
+            android:tint="@color/blue_dark_2"
+            tools:ignore="UseAppTint" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/nav_device"
+            android:textColor="@color/primary_dark"
+            android:textSize="20sp"
+            tools:ignore="SmallSp" />
+    </LinearLayout>
+
+    <!-- 我的 -->
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="12dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/我的图标"
+            android:src="@drawable/ic_user"
+            android:tint="@color/blue_dark_2"
+            tools:ignore="UseAppTint" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/nav_mine"
+            android:textColor="@color/primary_dark"
+            android:textSize="20sp"
+            tools:ignore="SmallSp" />
+    </LinearLayout>
+
+</LinearLayout>
