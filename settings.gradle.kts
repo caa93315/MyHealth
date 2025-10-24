@@ -5,6 +5,7 @@ pluginManagement {
         gradlePluginPortal()
     }
     plugins {
+        //noinspection AndroidGradlePluginVersion
         id("com.android.application") version "8.1.2"
         id("org.jetbrains.kotlin.android") version "1.8.22"
     }
