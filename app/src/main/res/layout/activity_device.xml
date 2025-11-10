@@ -1,35 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/light">
+    android:background="@color/background_light"
+    tools:ignore="VisualLintBounds">
 
-    <!-- 顶部栏 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
-        android:textColor="@color/gray_350"
         android:background="@drawable/shape_device_card"
         android:gravity="center_vertical"
         android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nav_arrow_left_desc"
-            android:textSize="28sp"
-            android:textStyle="bold" />
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,26 +24,33 @@
             android:src="@drawable/ic_arrow_left"
             android:tint="@color/gray_700"
             android:clickable="true"
-            tools:ignore="UseAppTint" />
-    </LinearLayout>
+            tools:ignore="KeyboardInaccessibleWidget,UseAppTint" />
 
-    <!-- 设备信息 -->
+        <TextView
+            android:id="@+id/tv_page_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="@string/title_device_settings"
+            android:textColor="@color/gray_850"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:textColor="@color/gray_850"
         android:background="@drawable/shape_device_card"
         android:gravity="center_vertical">
-
         <ImageView
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:contentDescription="@string/todo"
+            android:layout_marginEnd="16dp"
             android:src="@drawable/ic_band"
             android:scaleType="centerCrop"
             android:background="@drawable/shape_rounded"
-            android:layout_marginEnd="16dp"/>
+            android:contentDescription="@string/cd_device_image" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -69,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/pro"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -81,9 +74,9 @@
                 <ImageView
                     android:layout_width="16dp"
                     android:layout_height="16dp"
-                    android:contentDescription="@string/連接"
+                    android:contentDescription="@string/cd_connection_status"
                     android:src="@drawable/ic_signal"
-                    android:tint="@color/teal_700"
+                    android:tint="@color/light"
                     tools:ignore="UseAppTint,ImageContrastCheck" />
 
                 <TextView
@@ -91,9 +84,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/連線"
                     android:textSize="12sp"
-                    android:textColor="#073E3E"
-                    android:layout_marginLeft="4dp"
-                    tools:ignore="RtlHardcoded" />
+                    android:layout_marginStart="4dp"
+                    android:textColor="@color/text_connection_status" />
             </LinearLayout>
 
             <TextView
@@ -102,13 +94,18 @@
                 android:text="@string/续航"
                 android:textSize="12sp"
                 android:textColor="@color/gray_800"
-                android:layout_marginTop="4dp"/>
+                android:layout_marginTop="4dp" />
         </LinearLayout>
     </LinearLayout>
 
-    <!-- 功能开关 -->
+    <ListView
+        android:id="@+id/lv_paired_devices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:divider="@null"
+        android:dividerHeight="0dp" />
 
-    <!-- 设备功能 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -116,171 +113,186 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- 消息提醒 -->
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_clickable"
-            android:gravity="center_vertical"
-            android:padding="8dp">
+            android:padding="8dp"
+            tools:ignore="MissingClass,VisualLintBounds">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/消息提錫"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="@string/接收"
-                    android:textColor="@color/gray_800"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-            <Space
+            <TextView
+                android:id="@+id/tv_notification_title"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/消息提錫"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/switch_notification"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="VisualLintBounds" />
 
-            <!-- 开关：设置id以便代码监听 -->
+            <TextView
+                android:id="@+id/tv_notification_subtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/接收"
+                android:textColor="@color/gray_800"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/switch_notification"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_notification_title"
+                tools:ignore="VisualLintBounds" />
+
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch_notification"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true" />
-        </LinearLayout>
+                android:checked="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="VisualLintBounds" />
 
-        <!-- 心率监测 -->
-        <LinearLayout
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_clickable"
-            android:gravity="center_vertical"
-            android:padding="8dp">
+            android:padding="8dp"
+            tools:ignore="MissingClass,VisualLintBounds">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:text="@string/心率"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="@string/實時"
-                    android:textColor="@color/gray_800"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <Space
+            <TextView
+                android:id="@+id/tv_heart_rate_title"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/心率"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/switch_heart_rate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="VisualLintBounds" />
 
-            <!-- 开关：设置id以便代码监听 -->
+            <TextView
+                android:id="@+id/tv_heart_rate_subtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/實時"
+                android:textColor="@color/gray_800"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/switch_heart_rate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_heart_rate_title"
+                tools:ignore="VisualLintBounds" />
+
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch_heart_rate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true" />
-        </LinearLayout>
+                android:checked="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="VisualLintBounds" />
 
-        <!-- 久坐提醒 -->
-        <LinearLayout
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_clickable"
-            android:gravity="center_vertical"
-            android:padding="8dp">
+            android:padding="8dp"
+            tools:ignore="VisualLintBounds">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/久坐"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="@string/活動"
-                    android:textColor="@color/gray_800"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <Space
+            <TextView
+                android:id="@+id/tv_sitting_title"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/久坐"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/switch_sitting_reminder"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="VisualLintBounds" />
 
-            <!-- 开关：修复重复的android:checked属性 -->
+            <TextView
+                android:id="@+id/tv_sitting_subtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/活動"
+                android:textColor="@color/gray_800"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/switch_sitting_reminder"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_sitting_title"
+                tools:ignore="VisualLintBounds" />
+
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch_sitting_reminder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true" />
-        </LinearLayout>
+                android:checked="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="VisualLintBounds" />
 
-        <!-- 夜间模式 -->
-        <LinearLayout
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_clickable"
-            android:gravity="center_vertical"
-            android:padding="8dp">
+            android:padding="8dp"
+            tools:ignore="VisualLintBounds">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/夜間"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="@string/自動"
-                    android:textColor="@color/gray_800"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <Space
+            <TextView
+                android:id="@+id/tv_night_mode_title"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/夜間"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/switch_night_mode"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="VisualLintBounds" />
 
-            <!-- 开关：设置id以便代码监听 -->
+            <TextView
+                android:id="@+id/tv_night_mode_subtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/自動"
+                android:textColor="@color/gray_800"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/switch_night_mode"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_night_mode_title"
+                tools:ignore="VisualLintBounds" />
+
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch_night_mode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="false" />
-        </LinearLayout>
+                android:checked="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="VisualLintBounds" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -297,89 +309,89 @@
             android:textSize="14sp"
             android:textStyle="bold"
             android:textColor="@color/gray_800"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            tools:ignore="VisualLintBounds" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_card"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="VisualLintBounds">
 
-            <!-- 调整亮度 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:padding="12dp"
-                android:background="@drawable/shape_clickable">
+                android:background="@drawable/shape_clickable"
+                tools:ignore="VisualLintBounds">
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:contentDescription="@string/DO"
+                    android:layout_marginEnd="12dp"
                     android:src="@drawable/ic_brightness"
                     android:tint="@color/primary"
-                    android:layout_marginRight="12dp"
-                    tools:ignore="RtlHardcoded,UseAppTint" />
+                    android:contentDescription="@string/cd_brightness_settings"
+                    tools:ignore="UseAppTint,VisualLintBounds" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="@string/亮度"
                     android:textSize="16sp"/>
 
-                <Space android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
-
                 <ImageView
                     android:layout_width="16dp"
                     android:layout_height="16dp"
-                    android:contentDescription="@string/oclok"
+                    android:contentDescription="@string/cd_navigate_to_details"
                     android:src="@drawable/ic_arrow_right"
                     android:tint="@color/gray_800"
-                    tools:ignore="UseAppTint" />
+                    tools:ignore="UseAppTint,VisualLintBounds" />
             </LinearLayout>
 
-            <!-- 时间设置 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:padding="12dp"
-                android:background="@drawable/shape_clickable">
+                android:background="@drawable/shape_clickable"
+                tools:ignore="VisualLintBounds">
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:contentDescription="@string/to"
+                    android:layout_marginEnd="12dp"
                     android:src="@drawable/ic_clock"
                     android:tint="@color/primary"
-                    android:layout_marginRight="12dp"
-                    tools:ignore="RtlHardcoded,UseAppTint" />
+                    android:contentDescription="@string/cd_time_settings"
+                    tools:ignore="UseAppTint,VisualLintBounds" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="@string/時間設置"
                     android:textSize="16sp"/>
-
-                <Space android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
 
                 <ImageView
                     android:layout_width="16dp"
                     android:layout_height="16dp"
-                    android:contentDescription="@string/you"
+                    android:contentDescription="@string/cd_navigate_to_details"
                     android:src="@drawable/ic_arrow_right"
                     android:tint="@color/gray_700"
-                    tools:ignore="UseAppTint" />
+                    tools:ignore="UseAppTint,VisualLintBounds" />
             </LinearLayout>
 
-            <!-- 固件更新 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:padding="12dp"
-                android:background="@drawable/shape_clickable">
+                android:background="@drawable/shape_clickable"
+                tools:ignore="VisualLintBounds">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -387,28 +399,26 @@
                     android:contentDescription="@string/固件更新"
                     android:src="@drawable/ic_update"
                     android:tint="@color/primary"
-                    android:layout_marginRight="12dp"
-                    tools:ignore="RtlHardcoded,UseAppTint" />
+                    android:layout_marginEnd="12dp"
+                    tools:ignore="UseAppTint,VisualLintBounds" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="@string/ic_update"
                     android:textSize="16sp"/>
-
-                <Space android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/版本"
-                    android:textColor="#00838F"
+                    android:textColor="@color/text_info_selector"
                     android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
-    <!-- 操作按钮 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -417,10 +427,10 @@
         android:orientation="vertical">
 
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/some_button_id"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:minWidth="400dp"
             android:text="@string/watch"
             android:textSize="16sp"
             android:textColor="@color/gray_850"
@@ -429,24 +439,21 @@
             android:drawableStart="@drawable/ic_search"
             android:drawablePadding="10dp"
             android:layout_marginBottom="8dp"
-            tools:ignore="VisualLintButtonSize" />
+            tools:ignore="VisualLintButtonSize,VisualLintBounds" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:minWidth="160dp"
-            android:text="@string/sign_out"
-            android:textSize="16sp"
-            android:textColor="#3C0A05"
             android:background="@drawable/shape_btn_danger_border"
-            android:padding="12dp"
             android:drawableStart="@drawable/ic_sign_out"
             android:drawablePadding="8dp"
-            android:layout_marginBottom="8dp"
-            tools:ignore="VisualLintButtonSize" />
+            android:padding="12dp"
+            android:text="@string/sign_out"
+            android:textColor="#D32F2F"
+            android:textSize="16sp"
+            tools:ignore="VisualLintButtonSize,VisualLintBounds" />
     </LinearLayout>
 
-    <!-- 底部导航（与首页复用） -->
     <include layout="@layout/layout_bottom_nav"/>
 </LinearLayout>

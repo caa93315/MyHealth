@@ -1,25 +1,24 @@
 pluginManagement {
     repositories {
-        google()
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
         mavenCentral()
         gradlePluginPortal()
     }
-    plugins {
-        //noinspection AndroidGradlePluginVersion
-        id("com.android.application") version "8.1.2"
-        id("org.jetbrains.kotlin.android") version "1.8.22"
-    }
 }
-
 dependencyResolutionManagement {
-    dependencyResolutionManagement {
-        repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
-        repositories {
-            google()
-            mavenCentral()
-        }
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
     }
-
-    rootProject.name = "Health"
-    include(":app")
 }
+
+rootProject.name = "Health"
+include(":app")
+ 

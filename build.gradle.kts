@@ -1,17 +1,7 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// 檔案： build.gradle (Project: Health)
+
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.compose) apply false
-}
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-tasks.register<Delete>("clean") {
-    @Suppress("DEPRECATION")
-    delete(rootProject.buildDir)
 }

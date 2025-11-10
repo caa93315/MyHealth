@@ -1,57 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.health">
+    package="com.example.health"
+    tools:ignore="ExtraText"> <!-- 應用程式的唯一包名 -->
 
-    <!-- 声明 Health Connect API 权限 -->
-    <uses-permission android:name="android.permission.health.READ_HEART_RATE"/>
-    <uses-permission android:name="android.permission.health.WRITE_HEART_RATE"/>
-    <uses-permission android:name="android.permission.health.READ_STEPS"/>
-    <uses-permission android:name="android.permission.health.WRITE_STEPS"/>
+    <!-- ================== Health Connect API 權限聲明 ================== -->
+    <!-- 這些權限是為了與 Health Connect 互動，讀寫健康數據 -->
+    <uses-permission android:name="android.permission.health.READ_HEART_RATE" /> <!-- 讀取心率數據的權限 -->
+    <uses-permission android:name="android.permission.health.WRITE_HEART_RATE" /> <!-- 寫入心率數據的權限 -->
+    <uses-permission android:name="android.permission.health.READ_STEPS" /> <!-- 讀取步數數據的權限 -->
+    <uses-permission android:name="android.permission.health.WRITE_STEPS" /> <!-- 寫入步數數據的權限 -->
 
-    <!-- 查询 Health Connect 应用是否安装 -->
+    <!-- ================== 藍牙權限聲明 (適用於 Android 12+) ================== -->
+    <!-- 這些是 Android 12 (API 31) 引入的新的、更細分的藍牙權限 -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation"
+        tools:ignore="UnusedAttribute"
+        tools:targetApi="31" /> <!-- 強調掃描藍牙不用於獲取用戶的精確位置 --><!-- 提示此權限主要針對 API 31 及以上版本 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" /> <!-- 連接已配對藍牙設備的權限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" /> <!-- 讓其他設備能發現本設備的權限 -->
+
+    <!-- ================== 舊版藍牙與定位權限 (兼容舊版 Android) ================== -->
+    <!-- 這部分權限是為了兼容 Android 11 (API 30) 及以下版本 -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" /> <!-- 普通藍牙權限，只在 API 30 或更低版本上需要 -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" /> <!-- 管理藍牙設定的權限，只在 API 30 或更低版本上需要 -->
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:maxSdkVersion="30" /> <!-- 精確定位權限。在舊版 Android 上，掃描藍牙需要此權限 -->
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 粗略定位權限，某些藍牙操作可能需要 -->
+
+    <!-- ================== 應用程式可見性設定 ================== -->
+    <!-- 這個區塊告訴系統，我們的應用程式需要查詢其他應用程式的資訊 -->
     <queries>
+        <!-- 允許我們的應用程式查詢 "Health Connect" 是否已安裝 -->
         <package android:name="com.google.android.apps.healthdata" />
     </queries>
 
+    <!-- ================== 應用程式主體定義 ================== -->
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="心動犬"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Health"
         tools:targetApi="31">
 
-        <!-- 主活动 -->
+        <!-- ================== 主活動 (MainActivity) 定義 ================== -->
+        <!-- 這是應用程式啟動時顯示的第一個畫面 -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
+            android:label="心動犬"
             android:theme="@style/Theme.Health"
             tools:ignore="RedundantLabel">
+
+            <!-- 意圖過濾器 (Intent Filter)，定義了這個活動如何被啟動 -->
+            <!-- 1. 作為應用程式的主要入口 -->
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" /> <!-- 這是主要操作 -->
+                <category android:name="android.intent.category.LAUNCHER" /> <!-- 顯示在桌面啟動器上 -->
             </intent-filter>
-            <!-- 处理 Health Connect 权限说明的 intent -->
+
+            <!-- 2. 用於處理 Health Connect 的權限說明 -->
             <intent-filter>
-                <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
+                <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" /> <!-- 響應 Health Connect 的權限請求說明動作 -->
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <!-- 权限使用情况查看活动 -->
+        <!-- ================== 權限使用情況查看活動定義 ================== -->
+        <!-- 這是系統內建的一個功能，讓使用者可以查看應用程式為何需要某些權限 -->
         <activity
-            android:name=".ViewPermissionUsageActivity"
+            android:name="com.example.health.ViewPermissionUsageActivity"
             android:exported="true"
-            android:permission="android.permission.START_VIEW_PERMISSION_USAGE">
+            android:permission="android.permission.START_VIEW_PERMISSION_USAGE"
+            tools:ignore="MissingClass">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW_PERMISSION_USAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".DeviceActivityJava" />
     </application>
 </manifest>

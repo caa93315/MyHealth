@@ -1,44 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/light">
 
-    <!-- 个人信息栏 -->
     <LinearLayout
+        android:id="@+id/layout_user_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
         android:padding="16dp"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/iv_avatar"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/shape_rounded"
+            android:contentDescription="@string/user_avatar"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_user"
-            tools:ignore="ContentDescription,ImageContrastCheck" />
-
+            tools:ignore="ImageContrastCheck" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="用户昵称"
+                android:text="@string/user_nickname"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
-
             <TextView
+                android:id="@+id/tv_user_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -49,133 +53,125 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- 功能列表 -->
-    <LinearLayout
+    <include
+        android:id="@+id/bottom_nav"
+        layout="@layout/layout_bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <LinearLayout
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_user_info">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape_clickable"
-            android:padding="12dp"
-            android:gravity="center_vertical">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_settings"
-                android:layout_marginEnd="12dp"
-                app:tint="@color/gray_800"
-                tools:ignore="ContentDescription" />
-
+            android:padding="16dp">
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_settings"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="设置"
                 android:textSize="16sp"
-                tools:ignore="HardcodedText" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape_clickable"
-            android:padding="12dp"
-            android:gravity="center_vertical"
-            android:layout_marginTop="8dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_help"
-                android:layout_marginEnd="12dp"
-                app:tint="@color/gray_800"
-                tools:ignore="ContentDescription" />
+                android:background="@drawable/shape_clickable"
+                android:drawableStart="@drawable/ic_settings"
+                android:drawablePadding="12dp"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText,UseCompatTextViewDrawableXml" />
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_help"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="帮助与反馈"
                 android:textSize="16sp"
-                tools:ignore="HardcodedText" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:padding="12dp"
-            android:background="@drawable/shape_card">
+                android:layout_marginTop="8dp"
+                android:background="@drawable/shape_clickable"
+                android:drawableStart="@drawable/ic_help"
+                android:drawablePadding="12dp"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_settings"
+                tools:ignore="HardcodedText,UseCompatTextViewDrawableXml" />
 
             <TextView
+                android:id="@+id/tv_system_settings_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/system_settings"
                 android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <Space android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
-
+                android:layout_marginTop="8dp"
+                android:padding="12dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/iv_system_arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_help" />
             <ImageView
+                android:id="@+id/iv_system_arrow"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:src="@drawable/ic_arrow_down"
                 android:tint="@color/gray_800"
-                tools:ignore="ContentDescription,UseAppTint" />
-        </LinearLayout>
+                android:layout_marginEnd="12dp"
+                android:contentDescription="@string/toggle_system_settings"
+                app:layout_constraintBottom_toBottomOf="@id/tv_system_settings_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_system_settings_title"
+                tools:ignore="UseAppTint" />
 
-        <!-- 折叠内容 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="12dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tv_general_settings"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/shape_clickable"
-                android:padding="12dp"
-                android:gravity="center_vertical">
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_settings"
-                    android:tint="@color/gray_800"
-                    android:layout_marginEnd="12dp"
-                    tools:ignore="ContentDescription,UseAppTint" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/general_settings"
-                    android:textSize="16sp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/shape_clickable"
-                android:padding="12dp"
+                android:drawableStart="@drawable/ic_settings"
+                android:drawablePadding="12dp"
                 android:gravity="center_vertical"
-                android:layout_marginTop="8dp">
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_about"
-                    android:tint="@color/gray_800"
-                    android:layout_marginEnd="12dp"
-                    tools:ignore="ContentDescription,UseAppTint" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/about_us"
-                    android:textSize="16sp"/>
-            </LinearLayout>
-        </LinearLayout>
+                android:padding="12dp"
+                android:text="@string/general_settings"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_system_settings_title"
+                tools:ignore="UseCompatTextViewDrawableXml" />
 
-    </LinearLayout>
-    <!-- 底部导航（与首页复用） -->
-    <include layout="@layout/layout_bottom_nav"/>
-</LinearLayout>
+            <TextView
+                android:id="@+id/tv_about_us"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/shape_clickable"
+                android:padding="12dp"
+                android:drawableStart="@drawable/ic_about"
+                android:drawablePadding="12dp"
+                android:gravity="center_vertical"
+                android:text="@string/about_us"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_general_settings"
+                tools:ignore="UseCompatTextViewDrawableXml" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_system_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:constraint_referenced_ids="tv_general_settings, tv_about_us" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,7 +46,12 @@
     <color name="blue_400">#93C5FD</color>
     <color name="blue_500">#60A5FA</color>
 
+
     <color name="green_500">#188E1F</color>
 
     <color name="red_dark_1">#3C0A05</color>
+    <color name="text_danger">#A51</color>
+    <color name="text_connection_status">#1B5E20</color>
+    <color name="background_light">#CC28D71B</color>
+    <color name="text_info">#0277BD</color>
 </resources>

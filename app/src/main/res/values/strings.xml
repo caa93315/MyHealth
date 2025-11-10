@@ -164,6 +164,15 @@
     <string name="today_steps_title">今日步数</string>
     <string name="vs_last_week_up">较上周 +12%</string>
     <string name="weekly_steps_trend">周步数趋势</string>
+    <string name="user_avatar" />
+    <string name="toggle_system_settings" />
+    <string name="cd_brightness_settings" />
+    <string name="cd_navigate_to_details" />
+    <string name="cd_time_settings" />
+    <string name="cd_connection_status" />
+    <string name="cd_device_image" />
+    <string name="title_device_settings" />
+    <string name="cd_navigate_back" />
 
 </resources>
 

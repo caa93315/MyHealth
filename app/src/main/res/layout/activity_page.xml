@@ -164,26 +164,27 @@
 
     <!-- 步数趋势图（使用第三方图表库） -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="372dp"
         android:layout_height="240dp"
+        android:layout_margin="16dp"
         android:background="@drawable/shape_card"
         android:padding="16dp"
-        android:layout_margin="16dp"
         tools:ignore="Orientation">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:text="@string/weekly_steps_trend"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="12dp"/>
+            android:textStyle="bold" />
 
         <!-- 此处使用MPAndroidChart的LineChart -->
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/step_trend_chart"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
             tools:ignore="MissingClass" />
     </LinearLayout>
 

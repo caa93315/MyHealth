@@ -1,3 +1,8 @@
+// 檔案： MainActivity.kt (最終自動抓取版)
+
+// 檔案： MainActivity.kt (UI + 藍牙權限的完整版)
+
+// 1. 檔案最頂部，這是你的包名
 package com.example.health
 
 import android.annotation.SuppressLint
@@ -8,6 +13,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -22,7 +28,6 @@ import androidx.health.connect.client.records.HeartRateRecord
 import androidx.health.connect.client.records.StepsRecord
 import androidx.health.connect.client.request.ReadRecordsRequest
 import androidx.health.connect.client.time.TimeRangeFilter
-import com.example.health.ui.theme.HealthTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,6 +35,7 @@ import java.time.Instant
 import java.time.ZoneId
 import java.time.ZoneOffset
 import kotlin.math.roundToInt
+
 
 class MainActivity : ComponentActivity() {
     private val permissions = setOf(
@@ -39,31 +45,35 @@ class MainActivity : ComponentActivity() {
         HealthPermission.getWritePermission(StepsRecord::class)
     )
 
-    private val requestPermissionActivityContract = PermissionController.createRequestPermissionResultContract()
-    private val requestPermissions =
-            registerForActivityResult(requestPermissionActivityContract) { grantedPermissions ->
-                if (grantedPermissions.containsAll(permissions)) {
-                    showMessage("權限已獲得，可以存取健康數據")
-                    CoroutineScope(Dispatchers.Main).launch {
-                        readHealthData()
-                    }
-                } else {
-                    showMessage("權限被拒絕，無法存取健康數據")
-                }
-                // 只在 API 26+ 執行 Health Connect 相關功能
-                when {
-                    Build.VERSION.SDK_INT < Build.VERSION_CODES.O_MR1 -> {
-                    }
-                }
 
+    private val requestPermissionActivityContract = PermissionController.createRequestPermissionResultContract()
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private val requestPermissions =
+        registerForActivityResult(requestPermissionActivityContract) { grantedPermissions ->
+            if (grantedPermissions.containsAll(permissions)) {
+                showMessage("權限已獲得，可以存取健康數據")
+                CoroutineScope(Dispatchers.Main).launch {
+                    readHealthData()
+                }
+            } else {
+                showMessage("權限被拒絕，無法存取健康數據")
             }
+            // 只在 API 26+ 執行 Health Connect 相關功能
+            when {
+                Build.VERSION.SDK_INT < Build.VERSION_CODES.O_MR1 -> {
+                }
+            }
+
+        }
 
     private lateinit var healthConnectClient: HealthConnectClient
 
-    @SuppressLint("UseKtx")
+    @RequiresApi(Build.VERSION_CODES.DONUT)
+    @SuppressLint("UseKtx", "ObsoleteSdkInt")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
 
         val providerPackageName = "com.google.android.apps.healthdata"
         val availabilityStatus = HealthConnectClient.getSdkStatus(this, providerPackageName)
@@ -103,6 +113,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    @SuppressLint("NewApi")
     private fun checkPermissionsAndRun() {
         CoroutineScope(Dispatchers.Main).launch {
             val granted = healthConnectClient.permissionController.getGrantedPermissions()
@@ -115,6 +126,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private suspend fun readHealthData() = try {
         val now = Instant.now()
         val startOfDay = now.atZone(ZoneId.systemDefault())
@@ -173,3 +185,21 @@ fun GreetingPreview() {
         Greeting("Health")
     }
 }
+
+@Composable
+fun HealthTheme(content: @Composable () -> Unit) {
+    TODO("Not yet implemented")
+}
+// Preview 還是留給你，但它預覽不了複雜狀態
+// @Preview(showBackground = true)
+// @Composable
+// fun GreetingPreview() {
+//    HealthTheme {
+//        HealthScreen(
+//            uiState = UiState.HealthData(1000, 75),
+//            onInstallClick = {},
+//            onUpdateClick = {},
+//            onGrantPermissionClick = {}
+//        )
+//    }
+// }
