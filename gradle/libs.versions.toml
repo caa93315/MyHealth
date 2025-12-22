@@ -5,13 +5,17 @@ coreKtx = "1.17.0"
 junit = "4.13.2"
 junitVersion = "1.3.0"
 espressoCore = "3.7.0"
+#noinspection GradleDependency
 lifecycleRuntimeKtx = "2.9.4"
+#noinspection GradleDependency
 activityCompose = "1.11.0"
+#noinspection GradleDependency
 composeBom = "2025.11.00"
 appcompat = "1.7.1"
 healthConnect = "1.1.0"
 constraintlayout = "2.2.1"
 recyclerview = "1.4.0"
+viewpager2 = "1.1.0"
 
 
 [libraries]
@@ -40,6 +44,7 @@ ui = { module = "androidx.compose.ui:ui" }
 ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
 ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+androidx-viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

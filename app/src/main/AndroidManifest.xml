@@ -90,6 +90,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".DeviceActivityJava" />
+
     </application>
 </manifest>

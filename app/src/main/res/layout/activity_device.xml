@@ -37,401 +37,251 @@
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:background="@drawable/shape_device_card"
-        android:gravity="center_vertical">
-        <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_band"
-            android:scaleType="centerCrop"
-            android:background="@drawable/shape_rounded"
-            android:contentDescription="@string/cd_device_image" />
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pro"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/shape_device_card"
                 android:gravity="center_vertical"
-                android:layout_marginTop="4dp"
-                tools:ignore="UseCompoundDrawables">
+                android:padding="16dp">
 
                 <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:contentDescription="@string/cd_connection_status"
-                    android:src="@drawable/ic_signal"
-                    android:tint="@color/light"
-                    tools:ignore="UseAppTint,ImageContrastCheck" />
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/shape_rounded"
+                    android:contentDescription="@string/cd_device_image"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_band" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/連線"
-                    android:textSize="12sp"
-                    android:layout_marginStart="4dp"
-                    android:textColor="@color/text_connection_status" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pro"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center_vertical"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:contentDescription="@string/cd_connection_status"
+                            android:src="@drawable/ic_signal"
+                            android:tint="@color/light"
+                            tools:ignore="UseAppTint,ImageContrastCheck" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="@string/連線"
+                            android:textColor="@color/text_connection_status"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/续航"
+                        android:textColor="@color/gray_800"
+                        android:textSize="12sp" />
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/续航"
-                android:textSize="12sp"
-                android:textColor="@color/gray_800"
-                android:layout_marginTop="4dp" />
+                android:padding="16dp"
+                android:text="可用設備"
+                android:textColor="@color/gray_700"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <ListView
+                android:id="@+id/lv_paired_devices"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                tools:ignore="NestedScrolling"
+                tools:listitem="@android:layout/simple_list_item_1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_clickable"
+                    android:padding="8dp"
+                    tools:ignore="VisualLintBounds">
+
+                    <TextView
+                        android:id="@+id/tv_notification_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/消息提錫"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@+id/switch_notification"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_notification_subtitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/接收"
+                        android:textColor="@color/gray_800"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toStartOf="@+id/switch_notification"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_notification_title" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch_notification"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/shape_clickable"
+                    android:padding="8dp"
+                    tools:ignore="VisualLintBounds">
+
+                    <TextView
+                        android:id="@+id/tv_heart_rate_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/心率"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@+id/switch_heart_rate"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_heart_rate_subtitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/實時"
+                        android:textColor="@color/gray_800"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toStartOf="@+id/switch_heart_rate"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_heart_rate_title" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch_heart_rate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/設備功能"
+                    android:textColor="@color/gray_800"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_card"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_clickable"
+                        android:gravity="center_vertical"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="12dp"
+                            android:contentDescription="@string/cd_brightness_settings"
+                            android:src="@drawable/ic_brightness"
+                            android:tint="@color/primary"
+                            tools:ignore="UseAppTint" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/亮度"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_arrow_right"
+                            android:tint="@color/gray_800"
+                            tools:ignore="UseAppTint,ContentDescription" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <ListView
-        android:id="@+id/lv_paired_devices"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:divider="@null"
-        android:dividerHeight="0dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape_clickable"
-            android:padding="8dp"
-            tools:ignore="MissingClass,VisualLintBounds">
-
-            <TextView
-                android:id="@+id/tv_notification_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:text="@string/消息提錫"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/switch_notification"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="VisualLintBounds" />
-
-            <TextView
-                android:id="@+id/tv_notification_subtitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="16dp"
-                android:text="@string/接收"
-                android:textColor="@color/gray_800"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toStartOf="@+id/switch_notification"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_notification_title"
-                tools:ignore="VisualLintBounds" />
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch_notification"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="VisualLintBounds" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape_clickable"
-            android:padding="8dp"
-            tools:ignore="MissingClass,VisualLintBounds">
-
-            <TextView
-                android:id="@+id/tv_heart_rate_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:text="@string/心率"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/switch_heart_rate"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="VisualLintBounds" />
-
-            <TextView
-                android:id="@+id/tv_heart_rate_subtitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="16dp"
-                android:text="@string/實時"
-                android:textColor="@color/gray_800"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toStartOf="@+id/switch_heart_rate"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_heart_rate_title"
-                tools:ignore="VisualLintBounds" />
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch_heart_rate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="VisualLintBounds" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape_clickable"
-            android:padding="8dp"
-            tools:ignore="VisualLintBounds">
-
-            <TextView
-                android:id="@+id/tv_sitting_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:text="@string/久坐"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/switch_sitting_reminder"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="VisualLintBounds" />
-
-            <TextView
-                android:id="@+id/tv_sitting_subtitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="16dp"
-                android:text="@string/活動"
-                android:textColor="@color/gray_800"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toStartOf="@+id/switch_sitting_reminder"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_sitting_title"
-                tools:ignore="VisualLintBounds" />
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch_sitting_reminder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="VisualLintBounds" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape_clickable"
-            android:padding="8dp"
-            tools:ignore="VisualLintBounds">
-
-            <TextView
-                android:id="@+id/tv_night_mode_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:text="@string/夜間"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/switch_night_mode"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="VisualLintBounds" />
-
-            <TextView
-                android:id="@+id/tv_night_mode_subtitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="16dp"
-                android:text="@string/自動"
-                android:textColor="@color/gray_800"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toStartOf="@+id/switch_night_mode"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_night_mode_title"
-                tools:ignore="VisualLintBounds" />
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch_night_mode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="VisualLintBounds" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:background="@android:color/white"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/設備功能"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="@color/gray_800"
-            android:layout_marginBottom="8dp"
-            tools:ignore="VisualLintBounds" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape_card"
-            android:orientation="vertical"
-            tools:ignore="VisualLintBounds">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="12dp"
-                android:background="@drawable/shape_clickable"
-                tools:ignore="VisualLintBounds">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="12dp"
-                    android:src="@drawable/ic_brightness"
-                    android:tint="@color/primary"
-                    android:contentDescription="@string/cd_brightness_settings"
-                    tools:ignore="UseAppTint,VisualLintBounds" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/亮度"
-                    android:textSize="16sp"/>
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:contentDescription="@string/cd_navigate_to_details"
-                    android:src="@drawable/ic_arrow_right"
-                    android:tint="@color/gray_800"
-                    tools:ignore="UseAppTint,VisualLintBounds" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="12dp"
-                android:background="@drawable/shape_clickable"
-                tools:ignore="VisualLintBounds">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="12dp"
-                    android:src="@drawable/ic_clock"
-                    android:tint="@color/primary"
-                    android:contentDescription="@string/cd_time_settings"
-                    tools:ignore="UseAppTint,VisualLintBounds" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/時間設置"
-                    android:textSize="16sp"/>
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:contentDescription="@string/cd_navigate_to_details"
-                    android:src="@drawable/ic_arrow_right"
-                    android:tint="@color/gray_700"
-                    tools:ignore="UseAppTint,VisualLintBounds" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="12dp"
-                android:background="@drawable/shape_clickable"
-                tools:ignore="VisualLintBounds">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:contentDescription="@string/固件更新"
-                    android:src="@drawable/ic_update"
-                    android:tint="@color/primary"
-                    android:layout_marginEnd="12dp"
-                    tools:ignore="UseAppTint,VisualLintBounds" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/ic_update"
-                    android:textSize="16sp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/版本"
-                    android:textColor="@color/text_info_selector"
-                    android:textSize="12sp" />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:padding="16dp"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/some_button_id"
+            android:id="@+id/btn_start_scan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/watch"
+            android:text="開始掃描"
             android:textSize="16sp"
             android:textColor="@color/gray_850"
             android:background="@drawable/shape_btn_blue"
@@ -439,9 +289,10 @@
             android:drawableStart="@drawable/ic_search"
             android:drawablePadding="10dp"
             android:layout_marginBottom="8dp"
-            tools:ignore="VisualLintButtonSize,VisualLintBounds" />
+            tools:ignore="HardcodedText,VisualLintButtonSize" />
 
         <Button
+            android:id="@+id/btn_disconnect"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -452,8 +303,7 @@
             android:text="@string/sign_out"
             android:textColor="#D32F2F"
             android:textSize="16sp"
-            tools:ignore="VisualLintButtonSize,VisualLintBounds" />
+            tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
 
-    <include layout="@layout/layout_bottom_nav"/>
 </LinearLayout>

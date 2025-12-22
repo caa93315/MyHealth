@@ -174,5 +174,9 @@
     <string name="title_device_settings" />
     <string name="cd_navigate_back" />
 
+
+    <string name="text_start_scan">開始掃描</string>
+    <string name="text_stop_scan">停止掃描</string>
+
 </resources>
 
